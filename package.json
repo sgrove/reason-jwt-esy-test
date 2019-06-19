@@ -1,0 +1,49 @@
+{
+  "name": "reason-jwt-test",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+    "build": "pesy",
+    "release": {
+      "releasedBinaries": [
+        "ReasonJwtTestApp.exe"
+      ]
+    }
+  },
+  "buildDirs": {
+    "test": {
+      "require": ["reason-jwt-test.lib"],
+      "main": "TestReasonJwtTest",
+      "name": "TestReasonJwtTest.exe"
+    },
+    "library": {
+      "name": "reason-jwt-test.lib",
+      "namespace": "ReasonJwtTest"
+    },
+    "executable": {
+      "require": ["reason-jwt-test.lib"],
+      "main": "ReasonJwtTestApp",
+      "name": "ReasonJwtTestApp.exe"
+    }
+  },
+  "scripts": {
+    "pesy": "bash -c 'env PESY_MODE=update pesy'",
+    "test": "esy x TestReasonJwtTest.exe"
+  },
+  "dependencies": {
+    "@opam/dune": ">=1.6.0",
+    "@esy-ocaml/reason": "*",
+    "refmterr": "*",
+    "ocaml": "<4.8.0",
+    "pesy": "*",
+    "@opam/nocrypto": "*",
+    "@opam/ppx_sexp_conv": "*",
+    "@opam/x509": "0.6.2"
+  },
+  "resolutions": {
+    "@opam/nocrypto": "mirleft/ocaml-nocrypto:opam#ed7bb8d911dc340e36d85d335d9edb8339f0932d"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*"
+  }
+}
